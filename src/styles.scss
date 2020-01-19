@@ -1,1 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  //   font-family: "Montserrat", sans-serif;
+}
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.center {
+  text-align: center;
+}
+
+.push-right {
+  float: right;
+}

@@ -1,0 +1,29 @@
+<div class="title-block">
+    <h3 class="title center">ToDo List</h3>
+    <mat-divider></mat-divider>
+</div>
+
+<div class="list">
+    <mat-accordion *ngIf="todoService?.todoList?.length > 0 ;else empty">
+        <mat-expansion-panel *ngFor="let todo of todoService.todoList;let i = index">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    <span [style.text-decoration]="todo.isDone?'line-through':''">{{todo.title | titlecase }}</span>
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="details">
+                <ul>
+                    <li><strong>Title:</strong>{{todo.title}}</li>
+                    <li><strong>Comment:</strong>{{todo.comment}}</li>
+                </ul>
+                <button (click)='onDone(i)' [disabled]='todo.isDone' class="push-right" mat-raised-button color="primary">
+                    Mark done &nbsp;<mat-icon>done</mat-icon>
+                </button>
+            </div>
+        </mat-expansion-panel>
+
+    </mat-accordion>
+    <ng-template #empty>
+        <h3 class="title center">List is empty</h3>
+    </ng-template>
+</div>
