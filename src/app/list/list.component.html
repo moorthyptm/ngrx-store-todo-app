@@ -4,8 +4,8 @@
 </div>
 
 <div class="list">
-    <mat-accordion *ngIf="todoService?.todoList?.length > 0 ;else empty">
-        <mat-expansion-panel *ngFor="let todo of todoService.todoList;let i = index">
+    <mat-accordion *ngIf="(todoList$ | async)?.data?.length > 0 ;else empty">
+        <mat-expansion-panel *ngFor="let todo of (todoList$ | async)?.data;let i = index">
             <mat-expansion-panel-header>
                 <mat-panel-title>
                     <span [style.text-decoration]="todo.isDone?'line-through':''">{{todo.title | titlecase }}</span>
@@ -16,7 +16,8 @@
                     <li><strong>Title:</strong>{{todo.title}}</li>
                     <li><strong>Comment:</strong>{{todo.comment}}</li>
                 </ul>
-                <button (click)='onDone(i)' [disabled]='todo.isDone' class="push-right" mat-raised-button color="primary">
+                <button (click)='onDone(i)' [disabled]='todo.isDone' class="push-right" mat-raised-button
+                    color="primary">
                     Mark done &nbsp;<mat-icon>done</mat-icon>
                 </button>
             </div>

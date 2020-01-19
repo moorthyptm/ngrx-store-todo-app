@@ -21,9 +21,9 @@
         <div class="manage-list">
             <h3 class="title center">ToDO List</h3>
             <mat-divider></mat-divider>
-            <mat-list *ngIf="todoService?.todoList?.length > 0 ;else empty">
+            <mat-list *ngIf="(todoList$ | async )?.data?.length > 0 ;else empty">
 
-                <mat-list-item *ngFor="let todo of todoService.todoList;let i = index">
+                <mat-list-item *ngFor="let todo of (todoList$ | async )?.data;let i = index">
                     <mat-icon mat-list-icon>class</mat-icon>
                     <h4 mat-line>{{todo.title}}
                         <span class="push-right action">
