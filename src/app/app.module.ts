@@ -12,6 +12,8 @@ import { HomeComponent } from './home/home.component';
 import { ListComponent } from './list/list.component';
 import { ManageComponent } from './manage/manage.component';
 import { MatModule } from './mat.module';
+import { StoreModule } from '@ngrx/store';
+import { appReducer } from './app.state';
 
 
 @NgModule({
@@ -27,7 +29,8 @@ import { MatModule } from './mat.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    MatModule
+    MatModule,
+    StoreModule.forRoot(appReducer)
   ],
   providers: [],
   bootstrap: [AppComponent]
