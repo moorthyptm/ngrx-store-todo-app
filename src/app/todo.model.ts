@@ -1,15 +1,12 @@
-
-
 export class TodoList {
   isDone = false;
   constructor(
     public title: string,
     public comment: string,
-    private addedOn: Date = new Date()
-  ) { }
+    private _addedOn: Date = new Date()
+  ) {}
 
-  get addedon(): Date {
-    return this.addedOn;
+  public get addedOn(): Date {
+    return this._addedOn;
   }
-
 }

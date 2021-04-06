@@ -8,22 +8,22 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
-  styleUrls: ['./list.component.scss']
+  styleUrls: ['./list.component.scss'],
 })
 export class ListComponent implements OnInit {
-
   todoList$: Observable<ITodoListModel>;
 
-  constructor(private todoService: TodoService, private store: Store<{ TodoList: ITodoListModel }>) { }
+  constructor(
+    private todoService: TodoService,
+    private store: Store<{ TodoList: ITodoListModel }>
+  ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.todoList$ = this.store.select('TodoList');
-
   }
 
   onDone(index: number): void {
     this.store.dispatch(new DoneTodo(index));
     // this.todoService.todoList[index].isDone = true;
   }
-
 }
