@@ -2,9 +2,9 @@ import * as ToDo from './store/todo.reducer';
 import { ActionReducerMap } from '@ngrx/store';
 
 export interface AppState {
-    TodoList: ToDo.ITodoListModel;
+  TodoList: ToDo.ITodoListModel;
 }
 
-export const appReducer: ActionReducerMap<AppState> = {
-    TodoList: ToDo.TodoReducer
+export const appReducer: ActionReducerMap<AppState, any> = {
+  TodoList: ToDo?.TodoReducer,
 };
