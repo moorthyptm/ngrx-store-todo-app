@@ -121,6 +121,5 @@
         }
       }
     }
-  },
-  "defaultProject": "ngrx-store-todo-app"
+  }
 }

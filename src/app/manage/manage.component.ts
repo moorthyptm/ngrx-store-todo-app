@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import {
-  FormGroup,
-  FormControl,
+  UntypedFormGroup,
+  UntypedFormControl,
   Validators,
   FormGroupDirective,
 } from '@angular/forms';
@@ -30,9 +30,9 @@ export class ManageComponent implements OnInit, OnDestroy {
   todoList$: Observable<ITodoListModel>;
   listSubscription: Subscription;
 
-  todoForm: FormGroup = new FormGroup({
-    title: new FormControl(null, Validators.required),
-    comment: new FormControl(null, Validators.required),
+  todoForm: UntypedFormGroup = new UntypedFormGroup({
+    title: new UntypedFormControl(null, Validators.required),
+    comment: new UntypedFormControl(null, Validators.required),
   });
 
   @ViewChild(FormGroupDirective) formDirective: FormGroupDirective;
