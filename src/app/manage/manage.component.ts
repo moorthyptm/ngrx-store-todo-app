@@ -30,9 +30,9 @@ export class ManageComponent implements OnInit, OnDestroy {
   todoList$: Observable<ITodoListModel>;
   listSubscription: Subscription;
 
-  todoForm: FormGroup = new FormGroup({
-    title: new FormControl(null, Validators.required),
-    comment: new FormControl(null, Validators.required),
+  todoForm = new FormGroup({
+    title: new FormControl<string | null>(null, Validators.required),
+    comment: new FormControl<string | null>(null, Validators.required),
   });
 
   @ViewChild(FormGroupDirective) formDirective: FormGroupDirective;
